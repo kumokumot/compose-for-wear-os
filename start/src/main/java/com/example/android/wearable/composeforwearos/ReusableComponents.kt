@@ -84,13 +84,16 @@ fun TextExample(modifier: Modifier = Modifier) {
     )
 }
 
-// TODO: Create a Card (specifically, an AppCard) Composable
 @Composable
 fun CardExample(
     modifier: Modifier = Modifier,
     iconModifier: Modifier = Modifier
 ) {
-
+    AppCard(
+        modifier = modifier,
+        onClick = { /*TODO*/ }, appName = {Text(text = "アプリ名")}, time = {Text(text = "time")}, title = {Text(text = "タイトル")}) {
+        
+    }
 }
 
 // TODO: Create a Chip Composable
