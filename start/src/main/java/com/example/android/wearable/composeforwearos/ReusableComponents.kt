@@ -24,9 +24,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Message
-import androidx.compose.material.icons.rounded.Phone
-import androidx.compose.material.icons.rounded.SelfImprovement
+import androidx.compose.material.icons.rounded.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -91,24 +89,62 @@ fun CardExample(
 ) {
     AppCard(
         modifier = modifier,
-        onClick = { /*TODO*/ }, appName = {Text(text = "アプリ名")}, time = {Text(text = "time")}, title = {Text(text = "タイトル")}) {
-        
+        onClick = { /*TODO*/ },
+        appName = { Text(text = "アプリ名") },
+        time = { Text(text = "time") },
+        title = { Text(text = "タイトル") }) {
+
     }
 }
 
-// TODO: Create a Chip Composable
 @Composable
 fun ChipExample(
     modifier: Modifier = Modifier,
     iconModifier: Modifier = Modifier
 ) {
-
+    Chip(
+        modifier = modifier,
+        onClick = { /*TODO*/ },
+        label = {
+            Text(text = "5minute")
+        },
+        secondaryLabel = {
+            Text(text = "secondary")
+        },
+        icon = {
+            Icon(
+                modifier = iconModifier,
+                imageVector = Icons.Rounded.SelfImprovement,
+                contentDescription = "triggers meditation action"
+            )
+        },
+    )
 }
 
-// TODO: Create a ToggleChip Composable
 @Composable
 fun ToggleChipExample(modifier: Modifier = Modifier) {
-
+    var checked by remember { mutableStateOf(true) }
+    ToggleChip(
+        modifier = modifier,
+        checked = checked,
+        appIcon = { Icon(imageVector = Icons.Rounded.Speaker, contentDescription = "volume") },
+        toggleControl = {
+            Icon(
+                imageVector = ToggleChipDefaults.switchIcon(checked = checked),
+                contentDescription = if (checked) "On" else "Off"
+            )
+        },
+        onCheckedChange = {
+            checked = it
+        },
+        label = {
+            Text(
+                text = "Sound",
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+        }
+    )
 }
 
 // Function only used as a demo for when you start the code lab (removed as step 1).
