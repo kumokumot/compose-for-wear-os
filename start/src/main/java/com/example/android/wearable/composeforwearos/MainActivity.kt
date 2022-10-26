@@ -71,7 +71,21 @@ fun WearApp() {
         val listState = rememberScalingLazyListState()
 
         /* *************************** Part 4: Wear OS Scaffold *************************** */
-        // TODO (Start): Create a Scaffold (Wear Version)
+        Scaffold(
+            timeText = {
+                if (!listState.isScrollInProgress) {
+                    TimeText()
+                }
+            },
+            vignette = {
+                       Vignette(vignettePosition = VignettePosition.TopAndBottom)
+            },
+            positionIndicator = {
+                PositionIndicator(
+                    scalingLazyListState = listState
+                )
+            }
+        ) {
 
             // Modifiers used by our Wear composables.
             val contentModifier = Modifier
@@ -98,7 +112,7 @@ fun WearApp() {
                 item { ToggleChipExample(contentModifier) }
             }
 
-        // TODO (End): Create a Scaffold (Wear Version)
+        }
 
     }
 }
